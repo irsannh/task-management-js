@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const result = userManager.saveUser(userData);
 
     if (result.success) {
+      alert('Akun berhasil dibuat!');
       return (window.location.href = '../signin.html');
     } else {
       console.log('Proses simpan data gagal!');

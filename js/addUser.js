@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Akun berhasil dibuat!');
       return (window.location.href = '../signin.html');
     } else {
-      console.log('Proses simpan data gagal!');
+      alert('Username sudah ada. Silakan buat akun dengan Username lain!');
     }
   });
 });

@@ -6,17 +6,27 @@ class User {
   }
 
   saveUser(userData) {
-    const newUser = {
-      id: Date.now(),
-      ...userData,
-    };
+    const isDuplicate = this.users.some(
+      (user) => user.username.toLowerCase() === userData.username.toLowerCase(),
+    );
 
-    this.users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(this.users));
+    if (isDuplicate) {
+      return {
+        success: false,
+      };
+    } else {
+      const newUser = {
+        id: Date.now(),
+        ...userData,
+      };
 
-    return {
-      success: true,
-    };
+      this.users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(this.users));
+
+      return {
+        success: true,
+      };
+    }
   }
 
   signInUser(usernameByInput) {

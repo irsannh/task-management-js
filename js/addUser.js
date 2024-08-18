@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const userData = {
       username: document.getElementById('username').value,
+      password: document.getElementById('password').value,
     };
 
     const result = userManager.saveUser(userData);

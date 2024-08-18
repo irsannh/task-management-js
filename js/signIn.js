@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     const usernameByInput = document.getElementById('username').value;
+    const passwordByInput = document.getElementById('password').value;
 
-    const result = userManager.signInUser(usernameByInput);
+    const result = userManager.signInUser(usernameByInput, passwordByInput);
 
     if (result.success) {
       localStorage.setItem('usernameLoggedIn', usernameByInput);

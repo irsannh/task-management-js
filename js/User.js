@@ -29,18 +29,25 @@ class User {
     }
   }
 
-  signInUser(usernameByInput) {
+  signInUser(usernameByInput, passwordByInput) {
     console.log(usernameByInput);
 
-    const userExists = this.users.some(
+    const userExists = this.users.find(
       (user) => user.username.toLowerCase() === usernameByInput.toLowerCase(),
     );
 
     if (userExists) {
-      return {
-        success: true,
-        username,
-      };
+      if (userExists.password === passwordByInput) {
+        return {
+          success: true,
+          username,
+        };
+      } else {
+        return {
+          success: false,
+          message: 'Password salah!',
+        };
+      }
     } else {
       return {
         success: false,

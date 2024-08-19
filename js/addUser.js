@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const result = userManager.saveUser(userData);
 
     if (result.success) {
-      alert('Akun berhasil dibuat!');
+      alert(result.message);
       return (window.location.href = '../signin.html');
     } else {
-      alert('Username sudah ada. Silakan buat akun dengan Username lain!');
+      alert(result.message);
     }
   });
 });

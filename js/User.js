@@ -13,8 +13,15 @@ class User {
     if (isDuplicate) {
       return {
         success: false,
+        message: 'Akun tidak bisa dibuat. Username Sudah Ada!',
       };
     } else {
+      if (userData.password.length < 8) {
+        return {
+          success: false,
+          message: 'Password kurang dari 8 karakter',
+        };
+      }
       const newUser = {
         id: Date.now(),
         ...userData,
@@ -25,6 +32,7 @@ class User {
 
       return {
         success: true,
+        message: 'Akun berhasil dibuat!',
       };
     }
   }
